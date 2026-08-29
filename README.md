@@ -21,7 +21,6 @@ happens next in a procedure, rather than only recognizing what already happened.
 https://github.com/user-attachments/assets/c0e70a76-e4e0-4526-bc2f-fcc26b0f9187
 
 
-
 The demo is a **recorded walkthrough**, not a live hosted app. The video frame,
 the model's top-5 predicted next gesture, and the ground-truth label update
 together as playback advances, so you can see where the model tracks the
