@@ -196,12 +196,12 @@ from the official source: [JIGSAWS — JHU/CIRL](https://cirl.lcsr.jhu.edu/resea
 ├── requirements.txt
 ├── notebooks/
 │   ├── gesture_prediction_main.ipynb   # full pipeline, already run (outputs included) — read this to see results without re-running
-│   └── gesture_prediction_clear.ipynb  # same code, outputs cleared — run this fresh to reproduce from scratch      
+│   └── gesture_prediction_clear.ipynb  # same code, outputs cleared — run this fresh to reproduce from scratch
 ├── results/
 │   ├── louo_summary.json
 │   ├── error_analysis_summary.json
 │   └── plots/
-├── checkpoints/
+└── checkpoints/
     └── best_transformer.pt        # final model, trained on the full dataset
 
 ```
