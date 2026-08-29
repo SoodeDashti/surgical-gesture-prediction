@@ -1,0 +1,25 @@
+# Raw JIGSAWS dataset (never commit - academic-access licensed, not redistributable)
+*.avi
+*.zip
+jigsaws/
+Experimental_setup/
+Knot_Tying/
+Needle_Passing/
+Suturing/
+
+# Intermediate/experimental checkpoints and plots (only the final v4/best versions should be committed)
+trajectory_transformer_model.pt
+trajectory_transformer_model_v2.pt
+trajectory_transformer_model_v3_delta.pt
+*_v1.png
+*_v2.png
+*_v3.png
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
+Thumbs.db
