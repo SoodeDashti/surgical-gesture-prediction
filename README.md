@@ -1,3 +1,9 @@
+
+
+https://github.com/user-attachments/assets/c0e70a76-e4e0-4526-bc2f-fcc26b0f9187
+
+
+
 # Surgical Gesture Prediction from Kinematic Demonstrations
 
 Predicting a surgeon's **next gesture** during robot-assisted surgery from a short
