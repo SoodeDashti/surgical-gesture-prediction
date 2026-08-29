@@ -1,6 +1,6 @@
 
 
-https://github.com/user-attachments/assets/c0e70a76-e4e0-4526-bc2f-fcc26b0f9187
+
 
 
 
@@ -18,11 +18,9 @@ happens next in a procedure, rather than only recognizing what already happened.
 
 ## Demo
 
-https://github.com/user-attachments/assets/PLACEHOLDER-VIDEO-ID
+https://github.com/user-attachments/assets/c0e70a76-e4e0-4526-bc2f-fcc26b0f9187
 
-*(Replace the line above by dragging `demo.mp4` into this file directly in the
-GitHub web editor — GitHub will host it and generate the correct embed link
-automatically.)*
+
 
 The demo is a **recorded walkthrough**, not a live hosted app. The video frame,
 the model's top-5 predicted next gesture, and the ground-truth label update
@@ -110,7 +108,7 @@ Transformer model predicts the **next 5 frames (~160ms) of raw kinematics**
 (all 76 features) from the same 30-frame input window — closer to what a
 frame-by-frame AR motion overlay would need.
 
-![Trajectory prediction example](results/plots/trajectory_prediction_example_v3.png)
+![Trajectory prediction example](results/plots/trajectory_prediction_example.png)
 
 **Architecture note:** the 5 future frames are predicted **directly, in a
 single forward pass** (one linear layer outputs all `horizon x 76` values at
@@ -198,11 +196,7 @@ from the official source: [JIGSAWS — JHU/CIRL](https://cirl.lcsr.jhu.edu/resea
 ├── requirements.txt
 ├── notebooks/
 │   ├── gesture_prediction_main.ipynb   # full pipeline, already run (outputs included) — read this to see results without re-running
-│   └── gesture_prediction_clear.ipynb  # same code, outputs cleared — run this fresh to reproduce from scratch
-├── src/
-│   ├── data_loader.py             # JIGSAWS kinematics/transcription parsing
-│   ├── models.py                  # BiLSTM, TCN, Transformer architectures
-│   └── train.py                   # training + LOUO cross-validation loop
+│   └── gesture_prediction_clear.ipynb  # same code, outputs cleared — run this fresh to reproduce from scratch        # training + LOUO crossvalidation loop
 ├── results/
 │   ├── louo_summary.json
 │   ├── error_analysis_summary.json
