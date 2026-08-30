@@ -12,7 +12,11 @@ happens next in a procedure, rather than only recognizing what already happened.
 
 ## Demo
 
-https://github.com/user-attachments/assets/PLACEHOLDER-VIDEO-ID
+https://github.com/user-attachments/assets/PLACEHOLDER-VI
+
+https://github.com/user-attachments/assets/302be462-4a60-4233-a663-4f5c53370fdc
+
+DEO-ID
 
 The demo is a **recorded walkthrough**, not a live hosted app. The video frame,
 the model's top-5 predicted next gesture, and the ground-truth label update
