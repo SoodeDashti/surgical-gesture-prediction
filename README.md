@@ -1,9 +1,3 @@
-
-
-
-
-
-
 # Surgical Gesture Prediction from Kinematic Demonstrations
 
 Predicting a surgeon's **next gesture** during robot-assisted surgery from a short
@@ -18,9 +12,11 @@ happens next in a procedure, rather than only recognizing what already happened.
 
 ## Demo
 
-https://github.com/user-attachments/assets/c0e70a76-e4e0-4526-bc2f-fcc26b0f9187
+https://github.com/user-attachments/assets/PLACEHOLDER-VIDEO-ID
 
-
+*(Replace the line above by dragging `demo.mp4` into this file directly in the
+GitHub web editor — GitHub will host it and generate the correct embed link
+automatically.)*
 
 The demo is a **recorded walkthrough**, not a live hosted app. The video frame,
 the model's top-5 predicted next gesture, and the ground-truth label update
@@ -108,7 +104,7 @@ Transformer model predicts the **next 5 frames (~160ms) of raw kinematics**
 (all 76 features) from the same 30-frame input window — closer to what a
 frame-by-frame AR motion overlay would need.
 
-![Trajectory prediction example](results/plots/trajectory_prediction_example.png)
+![Trajectory prediction example](results/plots/trajectory_prediction_example_v3.png)
 
 **Architecture note:** the 5 future frames are predicted **directly, in a
 single forward pass** (one linear layer outputs all `horizon x 76` values at
@@ -196,7 +192,11 @@ from the official source: [JIGSAWS — JHU/CIRL](https://cirl.lcsr.jhu.edu/resea
 ├── requirements.txt
 ├── notebooks/
 │   ├── gesture_prediction_main.ipynb   # full pipeline, already run (outputs included) — read this to see results without re-running
-│   └── gesture_prediction_clear.ipynb  # same code, outputs cleared — run this fresh to reproduce from scratch        # training + LOUO crossvalidation loop
+│   └── gesture_prediction_clear.ipynb  # same code, outputs cleared — run this fresh to reproduce from scratch
+├── src/
+│   ├── data_loader.py             # JIGSAWS kinematics/transcription parsing
+│   ├── models.py                  # BiLSTM, TCN, Transformer architectures
+│   └── train.py                   # training + LOUO cross-validation loop
 ├── results/
 │   ├── louo_summary.json
 │   ├── error_analysis_summary.json
@@ -205,6 +205,21 @@ from the official source: [JIGSAWS — JHU/CIRL](https://cirl.lcsr.jhu.edu/resea
 │   └── best_transformer.pt        # final model, trained on the full dataset
 └── requirements.txt
 ```
+
+## Methodological rigor self-check (inspired by PROBAST+AI)
+
+[PROBAST+AI](https://pubmed.ncbi.nlm.nih.gov/40127903/) (2025) is a risk-of-bias and
+applicability assessment framework, built for clinical prediction models that
+estimate the probability of a health outcome (e.g. diagnosis, mortality) — not
+for motion/gesture prediction tasks like this one, so it doesn't strictly
+apply here. Its four domains are still a useful lens for self-critique:
+
+| Domain | What this project did | Known gap |
+|---|---|---|
+| **Participants / data sources** | Leave-One-User-Out CV specifically to avoid surgeon-style leakage between train/test | Single institution, 8 surgeons — small and not demographically diverse; results may not generalize beyond this simulator setup |
+| **Predictors** | All 76 kinematic features documented and available in real time from robot telemetry, no missing-data imputation needed | Predictors are lab/simulator kinematics, not live OR sensor data — a real deployment would need to handle noisier, less curated input |
+| **Outcome** | Gesture labels and future kinematics are objectively defined by expert annotation | Some gesture classes (G9, G10) are too rare to learn reliably (0% precision/recall) — outcome definition is fine, but class balance is not |
+| **Analysis** | Naive baseline comparison, paired significance testing (not just point estimates), per-feature-group error breakdown, explicit reporting of overfitting when it happened | Small overall sample (103 trials) limits how far these conclusions generalize; no external validation cohort |
 
 ## Limitations & future work
 
