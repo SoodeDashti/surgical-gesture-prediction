@@ -14,10 +14,6 @@ happens next in a procedure, rather than only recognizing what already happened.
 
 https://github.com/user-attachments/assets/PLACEHOLDER-VIDEO-ID
 
-*(Replace the line above by dragging `demo.mp4` into this file directly in the
-GitHub web editor — GitHub will host it and generate the correct embed link
-automatically.)*
-
 The demo is a **recorded walkthrough**, not a live hosted app. The video frame,
 the model's top-5 predicted next gesture, and the ground-truth label update
 together as playback advances, so you can see where the model tracks the
@@ -193,17 +189,13 @@ from the official source: [JIGSAWS — JHU/CIRL](https://cirl.lcsr.jhu.edu/resea
 ├── notebooks/
 │   ├── gesture_prediction_main.ipynb   # full pipeline, already run (outputs included) — read this to see results without re-running
 │   └── gesture_prediction_clear.ipynb  # same code, outputs cleared — run this fresh to reproduce from scratch
-├── src/
-│   ├── data_loader.py             # JIGSAWS kinematics/transcription parsing
-│   ├── models.py                  # BiLSTM, TCN, Transformer architectures
-│   └── train.py                   # training + LOUO cross-validation loop
 ├── results/
 │   ├── louo_summary.json
 │   ├── error_analysis_summary.json
 │   └── plots/
-├── checkpoints/
-│   └── best_transformer.pt        # final model, trained on the full dataset
-└── requirements.txt
+└── checkpoints/
+    └── best_transformer.pt        # final model, trained on the full dataset
+
 ```
 
 ## Methodological rigor self-check (inspired by PROBAST+AI)
